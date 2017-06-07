@@ -13,6 +13,6 @@ public class ConstantURL {
 
     public static final String bingPicURL = "http://guolin.tech/api/bing_pic";
 
-    public static final String chinaURL = "http://guolin.tech/api/china";
+    public static final String chinaURL = "http://guolin.tech/api/china/";
 
 }

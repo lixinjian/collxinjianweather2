@@ -233,7 +233,7 @@ public class ChooseAreaFragment extends Fragment {
     private void showProgressDialog(){
         if (progressDialog == null){
             progressDialog = new ProgressDialog(getActivity());
-            progressDialog.setMessage("正在加载中...");
+            progressDialog.setMessage("正在加载...");
             progressDialog.setCancelable(false);
         }
         progressDialog.show();
