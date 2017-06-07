@@ -18,6 +18,8 @@ import android.widget.Toast;
 import com.xinjian.R;
 import com.xinjian.activity.MainActivity;
 import com.xinjian.activity.WeatherActivity;
+import com.xinjian.base.Constant;
+import com.xinjian.base.ConstantURL;
 import com.xinjian.db.City;
 import com.xinjian.db.County;
 import com.xinjian.db.Province;
@@ -87,7 +89,7 @@ public class ChooseAreaFragment extends Fragment {
 
                     if (getActivity() instanceof MainActivity){
                     Intent intent = new Intent(getActivity(), WeatherActivity.class);
-                    intent.putExtra("weather_id",weatherId);
+                    intent.putExtra(Constant.weather_id,weatherId);
                     startActivity(intent);
                     getActivity().finish();
                     }else if(getActivity() instanceof WeatherActivity){
@@ -129,7 +131,7 @@ public class ChooseAreaFragment extends Fragment {
             listView.setSelection(0);
             currentLevel = LEVEL_PROVINCE;
         }else {
-            String address = "http://guolin.tech/api/china";
+            String address = ConstantURL.chinaURL;
             queryFromServer(address,"province");
         }
     }
@@ -152,7 +154,7 @@ public class ChooseAreaFragment extends Fragment {
             currentLevel = LEVEL_CITY;
         }else{
             int provinceCode = selectProvince.getProvinceCode();
-            String address = "http://guolin.tech/api/china/" + provinceCode;
+            String address = ConstantURL.chinaURL + provinceCode;
             queryFromServer(address,"city");
         }
     }
@@ -174,7 +176,7 @@ public class ChooseAreaFragment extends Fragment {
         }else {
             int provinceCode = selectProvince.getProvinceCode();
             int cityCode = selectCity.getCityCode();
-            String address = "http://guolin.tech/api/china/" + provinceCode + "/" + cityCode;
+            String address = ConstantURL.chinaURL + provinceCode + "/" + cityCode;
             queryFromServer(address,"county");
         }
     }
